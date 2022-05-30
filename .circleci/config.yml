@@ -1,13 +1,13 @@
-version: 2
+version: 2.1
 jobs:
-  # Define a "build_docs" job to be run with Circle
-  build_docs:
-    # This is the base environment that Circle will use
-    docker:
-      - image: circleci/python:3.6-stretch
+  build:
+    machine:
+      image: ubuntu-1604-cuda-10.1:201909-23
+    resource_class: gpu.nvidia.large
+    parallelism: 16
     steps:
       # Get our data and merge with upstream
-      - run: sudo apt-get update
+      - run: sudo apt-get update && nvidia-smi -L
       - checkout
       # Update our path
       - run: echo "export PATH=~/.local/bin:$PATH" >> $BASH_ENV
