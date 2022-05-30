@@ -10,7 +10,7 @@ jobs:
       - run: sudo apt-get update && nvidia-smi -L
       - checkout
       # Update our path
-      - run: echo "export PATH=~/.local/bin:$PATH" >> $BASH_ENV
+      - run: echo "export PATH=$HOME/.local/bin:$PATH" >> $BASH_ENV
       # Restore cached files to speed things up
       - restore_cache:
           keys:
