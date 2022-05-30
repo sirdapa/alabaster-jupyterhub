@@ -3,7 +3,7 @@ jobs:
   build_docs:
     machine:
       image: ubuntu-1604-cuda-10.1:201909-23
-    resource_class: gpu.nvidia.large
+    resource_class: gpu.nvidia.medium
     parallelism: 16
     steps:
       # Get our data and merge with upstream
